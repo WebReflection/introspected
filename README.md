@@ -1,5 +1,8 @@
 # Introspected [![Build Status](https://travis-ci.org/WebReflection/introspected.svg?branch=master)](https://travis-ci.org/WebReflection/introspected) [![Coverage Status](https://coveralls.io/repos/github/WebReflection/introspected/badge.svg?branch=master)](https://coveralls.io/github/WebReflection/introspected?branch=master)
 
+[Medium presentation post](https://medium.com/@WebReflection/introspected-js-objects-without-secrets-55cf0bd3dccc)
+- - -
+
 If you'd like to be notified about any possible change that could happen to a JSON compatible model / data / object / array / structure,
 including the possibility to retrieve the exact full path of the object that changed and eventually walk through it,
 you've reached you're destination.
