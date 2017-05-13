@@ -1,4 +1,4 @@
-# Introspected [![Build Status](https://travis-ci.org/WebReflection/Introspected.svg?branch=master)](https://travis-ci.org/WebReflection/Introspected) [![Coverage Status](https://coveralls.io/repos/github/WebReflection/Introspected/badge.svg?branch=master)](https://coveralls.io/github/WebReflection/Introspected?branch=master)
+# Introspected [![Build Status](https://travis-ci.org/WebReflection/introspected.svg?branch=master)](https://travis-ci.org/WebReflection/introspected) [![Coverage Status](https://coveralls.io/repos/github/WebReflection/introspected/badge.svg?branch=master)](https://coveralls.io/github/WebReflection/introspected?branch=master)
 
 If you'd like to be notified about any possible change that could happen to a JSON compatible model / data / object / array / structure,
 including the possibility to retrieve the exact full path of the object that changed and eventually walk through it,
@@ -41,7 +41,7 @@ Any spec compliant ES2015 JavaScript engine.
 
 <sup>(that means native `WeakMap`, `Proxy` and `Symbol.toPrimitive` too)</sup>
 
-[Live test page](https://webreflection.github.io/Introspected/)
+[Live test page](https://webreflection.github.io/introspected/)
 
 **Working:** NodeJS 6+, Chrome, Safari, GNOME Web, Edge, Firefox.
 
