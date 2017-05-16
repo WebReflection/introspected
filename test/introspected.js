@@ -7,7 +7,7 @@ Array.prototype.fill = fill;
 
 tressa.title('Introspected');
 
-tressa.assert(Object.getPrototypeOf(Introspected({})) === Introspected.prototype, 'is a Introspected object');
+tressa.assert(Object.getPrototypeOf(Introspected({})) === Introspected.prototype, 'is an Introspected object');
 tressa.assert(typeof Introspected({}), 'is an object');
 tressa.assert(Array.isArray(Introspected([])), 'is an array');
 tressa.assert('' == Introspected({}).any, 'is an empty string');
@@ -70,7 +70,42 @@ o = Introspected({any: 123}, (root, path) => {
 delete o.any;
 delete o.nope;
 
+let calls = 0;
+let double = Introspected(null, () => calls++);
+tressa.assert(
+  double === Introspected(double, () => calls++),
+  'same introspected passed twice is same'
+);
+double.any = 'value';
+tressa.assert(calls === 2, 'callbacks can be added anyway');
 
+let withSameChildren = Introspected([{a: 1}, {b: 2}]);
+let wscA = withSameChildren[0];
+let wscB = withSameChildren[1];
+withSameChildren.push({c: 3});
+tressa.assert(
+  wscA === withSameChildren[0] &&
+  wscB === withSameChildren[1],
+  'previously mapped objects are not changed'
+);
+tressa.assert(
+  JSON.stringify(withSameChildren) === '[{"a":1},{"b":2},{"c":3}]',
+  'expected JSON with known objects'
+);
+
+withSameChildren = Introspected({items: [{a: 1}, {b: 2}]});
+wscA = withSameChildren.items[0];
+wscB = withSameChildren.items[1];
+withSameChildren.items = withSameChildren.items.concat({c: 3});
+tressa.assert(
+  wscA === withSameChildren.items[0] &&
+  wscB === withSameChildren.items[1],
+  'not changed even if reassigned'
+);
+tressa.assert(
+  JSON.stringify(withSameChildren) === '{"items":[{"a":1},{"b":2},{"c":3}]}',
+  'expected JSON with reassigned objects'
+);
 
 tressa.end();
 
