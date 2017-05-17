@@ -19,15 +19,15 @@ var Introspected = ((O) => {'use strict';
 
   // triggered on Array changes
   const ArrayHandler = [
-    "copyWithin",
-    "fill",
-    "pop",
-    "push",
-    "reverse",
-    "shift",
-    "sort",
-    "splice",
-    "unshift"
+    'copyWithin',
+    'fill',
+    'pop',
+    'push',
+    'reverse',
+    'shift',
+    'sort',
+    'splice',
+    'unshift'
   ].reduce((properties, method) => {
     const fn = Array.prototype[method];
     if (fn) properties[method] = {
@@ -167,10 +167,17 @@ var Introspected = ((O) => {'use strict';
       if (!isNull) keys(target).forEach(
         prop => setValue(info.O, root, emptyArray, prop, target[prop])
       );
-      if (callback) info.O.$.add(callback);
+      if (callback) {
+        info.O.$.add(callback);
+        callback(info._, []);
+      }
       return info._;
     } else {
-      if (callback) known.get(target.toJSON()).O.$.add(callback);
+      if (callback) {
+        known.get(target.toJSON()).O.$.add(callback);
+        // don't notify other callbacks since no change was made
+        callback(target, []);
+      }
       return target;
     }
   }

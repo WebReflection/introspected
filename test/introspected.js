@@ -65,7 +65,10 @@ tressa.assert(o.a === a, 'a was not wrapped');
 tressa.assert(o.empty === empty, 'neither was empty');
 
 o = Introspected({any: 123}, (root, path) => {
-  tressa.assert(path.join('') === 'any', 'deleted path');
+  // only on deleted paths
+  if (path.length) {
+    tressa.assert(path.join('') === 'any', 'deleted path');
+  }
 });
 delete o.any;
 delete o.nope;
@@ -76,8 +79,9 @@ tressa.assert(
   double === Introspected(double, () => calls++),
   'same introspected passed twice is same'
 );
+tressa.assert(calls === 2, 'callbacks are invoked once ready');
 double.any = 'value';
-tressa.assert(calls === 2, 'callbacks can be added anyway');
+tressa.assert(calls === 4, 'callbacks are re-invoked on changes');
 
 let withSameChildren = Introspected([{a: 1}, {b: 2}]);
 let wscA = withSameChildren[0];
