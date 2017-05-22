@@ -5,7 +5,7 @@
 
 If you'd like to be notified about any possible change that could happen to a JSON compatible model / data / object / array / structure,
 including the possibility to retrieve the exact full path of the object that changed and eventually walk through it,
-you've reached you're destination.
+you've reached your destination.
 
 ```js
 const data = Introspected(
