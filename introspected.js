@@ -3,7 +3,7 @@ var Introspected = ((O) => {'use strict';
 
   // commonly needed shortcuts
   const SProto = Introspected.prototype;
-  // const create = Object.create;
+  const toString = O.prototype.toString;
   const create = O.create;
   const defineProperties = O.defineProperties;
   const emptyArray = [];
@@ -29,7 +29,7 @@ var Introspected = ((O) => {'use strict';
     'splice',
     'unshift'
   ].reduce((properties, method) => {
-    const fn = Array.prototype[method];
+    const fn = emptyArray[method];
     if (fn) properties[method] = {
       value() {
         const result = fn.apply(this, arguments);
@@ -133,10 +133,11 @@ var Introspected = ((O) => {'use strict';
     } else if(typeof value === 'object' && value != null) {
       const object = getPrototypeOf(value) === SProto ?
                       value.toJSON() : value;
-      target[prop] = (
-        known.get(object) ||
-        importObject(observer, object, path.concat(prop))
-      )._;
+      target[prop] = toString.call(object) === '[object Date]' ?
+        object : (
+          known.get(object) ||
+          importObject(observer, object, path.concat(prop))
+        )._;
     } else {
       target[prop] = value;
     }

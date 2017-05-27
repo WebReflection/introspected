@@ -111,6 +111,11 @@ tressa.assert(
   'expected JSON with reassigned objects'
 );
 
+tressa.assert(
+  JSON.stringify(Introspected({d: new Date(1352505600000)})) === '{"d":"2012-11-10T00:00:00.000Z"}',
+  'expected JSON with a stringified date'
+);
+
 tressa.end();
 
 if (!tressa.exitCode && typeof document !== 'undefined') {
