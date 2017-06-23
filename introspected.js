@@ -55,6 +55,7 @@ var Introspected = ((O) => {'use strict';
       if (prop in target && delete target[prop] && known.has(target)) {
         known.get(target).O(prop);
       }
+      return true;
     },
     // return the correct prototype
     getPrototypeOf() {
