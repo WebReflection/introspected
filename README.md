@@ -46,9 +46,9 @@ Any spec compliant ES2015 JavaScript engine.
 
 [Live test page](https://webreflection.github.io/introspected/)
 
-**Working:** NodeJS 6+, Chrome, Safari, GNOME Web, Edge, Firefox.
+**Working:** NodeJS 6+, Chrome, Safari, GNOME Web, Edge, Firefox, Samsung Internet (Chrome 51)
 
-**Not there yet:** UC Browser (WebKit 534), Samsung Internet (Chrome 44)
+**Not there yet:** UC Browser (WebKit 534)
 
 
 ## ISC License
