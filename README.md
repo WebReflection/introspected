@@ -1,4 +1,4 @@
-# Introspected [![Build Status](https://travis-ci.org/WebReflection/introspected.svg?branch=master)](https://travis-ci.org/WebReflection/introspected) [![Coverage Status](https://coveralls.io/repos/github/WebReflection/introspected/badge.svg?branch=master)](https://coveralls.io/github/WebReflection/introspected?branch=master)
+# Introspected [![Build Status](https://travis-ci.org/WebReflection/introspected.svg?branch=master)](https://travis-ci.org/WebReflection/introspected) [![Coverage Status](https://coveralls.io/repos/github/WebReflection/introspected/badge.svg?branch=master)](https://coveralls.io/github/WebReflection/introspected?branch=master) [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat)](https://github.com/WebReflection/donate)
 
 [Medium presentation post](https://medium.com/@WebReflection/introspected-js-objects-without-secrets-55cf0bd3dccc)
 - - -
