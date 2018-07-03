@@ -3,6 +3,7 @@
   "version": "0.2.5",
   "description": "Introspection for serializable arrays and JSON like objects.",
   "main": "./introspected.js",
+  "unpkg": "min.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WebReflection/introspected.git"
